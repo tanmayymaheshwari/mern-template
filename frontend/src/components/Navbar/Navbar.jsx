@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../../store/useAuthStore";
 import { LogOut, MessageSquare, Settings, User } from "lucide-react";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const { logout, authUser } = useAuthStore();
+  const logout = useAuthStore((state) => (state.logout));
+  const authUser = useAuthStore((state) => (state.authUser));
 
   return (
     <header className={styles.header}>
@@ -15,7 +16,7 @@ const Navbar = () => {
               <div className={styles.logoIcon}>
                 <MessageSquare className={styles.icon} />
               </div>
-              <h1 className={styles.logoText}>Chatty</h1>
+              <h1 className={styles.logoText}>APP NAME</h1>
             </Link>
           </div>
 
